@@ -1,0 +1,39 @@
+## Syntax highlighting for Itsuki (.suki / .huki).
+
+syntax "itsuki" "\.(suki|huki)$"
+comment "//"
+
+# Constants and enum values.
+color brightred "\<[A-Z_][0-9A-Z_]+\>"
+
+# Types and declarations.
+color green "\<(int|int8|int16|int32|int64|float|double|bool|char|void|sizeof|const|var|struct|union|enum|typedef|extern|inline)\>"
+color green "\<(class|namespace|public|protected|private|this|using)\>"
+
+# Control flow.
+color brightyellow "\<(fn|if|else|while|for|do|switch|case|default)\>"
+
+# Jump statements.
+color magenta "\<(return|break|continue|goto)\>"
+
+# Preprocessor directives.
+color brightcyan "^[[:space:]]*#[[:space:]]*(define|include|pragma|ifdef|ifndef|endif|if|error|warning)"
+
+# Character literals.
+color brightmagenta "'([^'\\]|(\\[\"'abfnrtv\\]))'" "'\\\\x[0-9A-Fa-f]{1,2}'"
+
+# Language builtins.
+color cyan "\<(true|false|__asm__)\>"
+
+# Strings (plain and interpolated f""/$"").
+color brightyellow "\"([^\"]|\\\")*\""
+
+# Comments.
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
+
+# Reminders.
+color ,yellow "\<(FIXME|TODO|XXX)\>"
+
+# Trailing whitespace.
+color ,green "[[:space:]]+$"
